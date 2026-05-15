@@ -15,16 +15,8 @@
       background: #111;
       font-family: Arial, sans-serif;
     }
-
-    .container {
-      text-align: center;
-    }
-
-    img {
-      width: 300px;
-      border-radius: 12px;
-    }
-
+    .container { text-align: center; }
+    img { width: 300px; border-radius: 12px; }
     button {
       margin-top: 20px;
       padding: 12px 24px;
@@ -32,23 +24,20 @@
       border: none;
       border-radius: 8px;
       cursor: pointer;
+      background: #ffd700;
     }
   </style>
 </head>
 
 <body>
-
   <div class="container">
     <img id="bulb" src="cboff.png" alt="Bulb">
-
     <br>
-
-    <button id="btn" onclick="changeBulb()">
-      Turn On
-    </button>
+    <button id="btn" onclick="changeBulb()">Turn On</button>
   </div>
+
   <audio id="onSound" src="sound.mp3"></audio>
-<audio id="offSound" src="sound.mp3"></audio>
+  <audio id="offSound" src="sound.mp3"></audio>
 
   <script>
     let isOn = false;
@@ -56,19 +45,23 @@
     function changeBulb() {
       let bulb = document.getElementById("bulb");
       let btn = document.getElementById("btn");
-      let sound = document.getElementById("clickSound");
+      let onSound = document.getElementById("onSound");
+      let offSound = document.getElementById("offSound");
 
       if (isOn) {
         bulb.src = "cboff.png";
         btn.innerText = "Turn On";
+        offSound.currentTime = 0;  
+        offSound.play();
         isOn = false;
       } else {
         bulb.src = "cbon.png";
         btn.innerText = "Turn Off";
+        onSound.currentTime = 0;  
+        onSound.play();
         isOn = true;
       }
     }
   </script>
-
 </body>
 </html>
