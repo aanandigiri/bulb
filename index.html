@@ -47,6 +47,8 @@
       Turn On
     </button>
   </div>
+  <audio id="onSound" src="on.mp3"></audio>
+<audio id="offSound" src="off.mp3"></audio>
 
   <script>
     let isOn = false;
@@ -54,6 +56,7 @@
     function changeBulb() {
       let bulb = document.getElementById("bulb");
       let btn = document.getElementById("btn");
+      let sound = document.getElementById("clickSound");
 
       if (isOn) {
         bulb.src = "cboff.png";
